@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here
 
-class Original(models.Model):
+class NewsText(models.Model):
     title = models.CharField(max_length=200)
     original_text = models.TextField()
     corrected_text = models.TextField(blank=True)

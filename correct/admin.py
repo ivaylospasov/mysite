@@ -1,4 +1,4 @@
 from django.contrib import admin
-from correct.models import Original
+from correct.models import NewsText
 # Register your models here.
-admin.site.register(Original)
+admin.site.register(NewsText)
