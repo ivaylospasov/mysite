@@ -9,7 +9,7 @@ class NewsText(models.Model):
 
     def save(self, *args, **kwargs):
         self.corrected_text = self.original_text.lower()
-        super(Original, self).save(*args, **kwargs)
+        super(NewsText, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title

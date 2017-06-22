@@ -13,4 +13,4 @@ class NewsInput(forms.Form):
 class OriginalInputForm(forms.ModelForm):
     class Meta():
         model = NewsText
-        fields = '__all__'
+        fields = ['title', 'original_text']
