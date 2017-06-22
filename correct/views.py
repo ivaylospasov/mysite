@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import forms
+from correct.forms import NewsInput, OriginalInputForm
 
 # Create your views here.
 
@@ -27,3 +27,17 @@ def news_input_form(request):
             print("Title "+form.cleaned_data['title'])
             print("Original text "+form.cleaned_data['original_text'])
     return render(request, 'correct/news.html', {'form':form})
+
+
+def original_input_form(request):
+    form = OriginalInputForm()
+
+    if request.method == "POST":
+        form = OriginalInputForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print('ERROR FORM INVALID')
+
+    return render(request, 'correct/text.html', {'form':form})

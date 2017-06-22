@@ -7,12 +7,14 @@
     </head>
     <body>
         <div class="container">
-            <div class="jumbotron">
-                <h1>Welcome to home page</h1>
-                <h2>Go to <a href="text">/text</a> to fill out the REAL form.</h2>
-                <h2>Go to <a href="news">/news</a> to fill out the DUMMY form.</h2>
+            <h1>Fill out the form</h1>
+            <div class="container">
+                <form class="" method="POST">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
             </div>
-
         </div>
 
     </body>
