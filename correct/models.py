@@ -1,14 +1,14 @@
 from django.db import models
+import re
 
 # Create your models here
 
 class NewsText(models.Model):
     title = models.CharField(max_length=200)
     original_text = models.TextField()
-    corrected_text = models.TextField(blank=True)
 
     def save(self, *args, **kwargs):
-        self.corrected_text = self.original_text.lower()
+        self.title = self.title.lower()
         super(NewsText, self).save(*args, **kwargs)
 
     def __str__(self):

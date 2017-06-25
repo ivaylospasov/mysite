@@ -3,8 +3,15 @@ from django import template
 register = template.Library()
 
 @register.filter('cut')
-def cut(valuse, arg):
+def cut(value, arg):
     """
     This cuts out all values of "arg" from the string.
     """
     return value.join(arg.split())
+
+@register.filter('space_comma')
+def space_comma(value, arg):
+    """
+    places space after comma.
+    """
+    return value.replace(arg, ', ')

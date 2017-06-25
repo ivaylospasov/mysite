@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "correct/base.html" %}
+    {% load my_extras %}
+    {% block body_block %}
+            <div class="jumbotron">
+                <h1>Готов текст</h1>
+            </div>
+            <div class="row">
+                {% for news in data %}
+                <p>{{ news.original_text|space_comma:" ,"|striptags|linebreaks }}</p>
+                {% endfor %}
+            </div>
+
+    {% endblock %}

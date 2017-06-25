@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 {% extends "correct/base.html" %}
+    {% load my_extras %}
     {% block body_block %}
             <div class="jumbotron">
                 <h1>Welcome to home page</h1>
                 <h2>Go to <a href="{% url 'correct:original_input_form' %}">/text</a> to fill out the REAL form.</h2>
             </div>
             <div class="">
-                {{ insert_me|cut:''|striptags|linebreaks }}
+                {{ insert_me|space_comma:" ,"|striptags|linebreaks }}
                 <h1>{{ number|add:"99" }}</h1>
             </div>
 
