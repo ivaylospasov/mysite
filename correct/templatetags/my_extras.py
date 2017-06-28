@@ -9,9 +9,18 @@ def cut(value, arg):
     """
     return value.join(arg.split())
 
+
 @register.filter('space_comma')
 def space_comma(value, arg):
     """
     places space after comma.
     """
     return value.replace(arg, ', ')
+
+
+register.filter('double_br')
+def double_br(value, arg):
+    """
+    places space after comma.
+    """
+    return value.replace(arg, '<br /><br />')

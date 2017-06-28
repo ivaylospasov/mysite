@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
 from correct.forms import NewsInput, OriginalInputForm
@@ -28,4 +28,18 @@ def original_input_form(request):
 
 def ready(request):
     data = NewsText.objects.all()
-    return TemplateResponse(request, 'correct/ready.html', {'data': data})
+    context = {
+        "data": data,
+        "title": "List"
+    }
+    # return TemplateResponse(request, 'correct/ready.html', {'data': data})
+    return TemplateResponse(request, 'correct/ready.html', context)
+
+
+def detail(request, id=None):
+    instance = get_object_or_404(NewsText, id=id)
+    context = {
+        "title": instance.title,
+        "instance": instance
+    }
+    return render(request, 'correct/detail.html', context)

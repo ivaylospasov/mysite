@@ -3,14 +3,13 @@
     {% load my_extras %}
     {% block body_block %}
             <div class="jumbotron">
-                <h1>Готови текстове</h1>
+                <h1>Готов текст</h1>
             </div>
             <div class="row">
-                {% for news in data %}
-                <p>{{ news.id }}<br>
-                    <a href="{% url 'correct:ready' %}">{{ news.title }}</a><hr>
+                <p><h1>{{ instance.id }}</h1>
+                    <h2>{{ instance.title }}</h2>
+                    <p>{{ instance.original_text|space_comma:" ,"|striptags|linebreaksbr }}</p>
                 </p>
-                {% endfor %}
             </div>
 
     {% endblock %}

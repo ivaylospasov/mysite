@@ -54,6 +54,8 @@ coverage.xml
 *.log
 local_settings.py
 /isspasovbg/settings.py
+/correct/migrations/
+/webnews/migrations/
 
 # Flask stuff:
 instance/
